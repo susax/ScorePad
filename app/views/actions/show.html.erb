@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= @game.top_team_id %></td>
+    <td><%= @game.bottom_team_id %></td>
+    <td><%= @game.playball_datetime %></td>
+    <td><%= @game.stadium %></td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

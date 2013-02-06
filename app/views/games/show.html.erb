@@ -1,0 +1,141 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= @game.top_team_id %></td>
+    <td><%= @game.bottom_team_id %></td>
+    <td><%= @game.playball_datetime %></td>
+    <td><%= @game.stadium %></td>
+  </tr>
+</table>
+
+<table id="lineup">
+  <tr>
+  	<td>先攻</td>
+  	<td>後攻</td>
+  </tr>
+  <tr>
+  	<td>
+      <table id="top_lineup">
+      	<tr id="top_lineup_1">
+      	  <td>1:</td>
+      	  <td id="top_lineup_1_player"></td>
+      	</tr>
+      	<tr id="top_lineup_2">
+      	  <td>2:</td>
+      	  <td id="top_lineup_2_player"></td>
+      	</tr>
+      	<tr id="top_lineup_3">
+      	  <td>3:</td>
+      	  <td id="top_lineup_3_player"></td>
+      	</tr>
+      	<tr id="top_lineup_4">
+      	  <td>4:</td>
+      	  <td id="top_lineup_4_player"></td>
+      	</tr>
+      	<tr id="top_lineup_5">
+      	  <td>5:</td>
+      	  <td id="top_lineup_5_player"></td>
+      	</tr>
+      	<tr id="top_lineup_6">
+      	  <td>6:</td>
+      	  <td id="top_lineup_6_player"></td>
+      	</tr>
+      	<tr id="top_lineup_7">
+      	  <td>7:</td>
+      	  <td id="top_lineup_7_player"></td>
+      	</tr>
+      	<tr id="top_lineup_8">
+      	  <td>8:</td>
+      	  <td id="top_lineup_8_player"></td>
+      	</tr>
+      	<tr id="top_lineup_9">
+      	  <td>9:</td>
+      	  <td id="top_lineup_9_player"></td>
+      	</tr>
+      </table>
+  	</td>
+  	<td>
+      <table id="bottom_lineup">
+      	<tr id="bottom_lineup_1">
+      	  <td>1:</td>
+      	  <td id="bottom_lineup_1_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_2">
+      	  <td>2:</td>
+      	  <td id="bottom_lineup_2_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_3">
+      	  <td>3:</td>
+      	  <td id="bottom_lineup_3_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_4">
+      	  <td>4:</td>
+      	  <td id="bottom_lineup_4_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_5">
+      	  <td>5:</td>
+      	  <td id="bottom_lineup_5_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_6">
+      	  <td>6:</td>
+      	  <td id="bottom_lineup_6_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_7">
+      	  <td>7:</td>
+      	  <td id="bottom_lineup_7_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_8">
+      	  <td>8:</td>
+      	  <td id="lineup_8_player"></td>
+      	</tr>
+      	<tr id="bottom_lineup_9">
+      	  <td>9:</td>
+      	  <td id="lineup_9_player"></td>
+      	</tr>
+      </table>
+  	</td>
+  </tr>
+</table>
+
+<table id="count">
+  <tr>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+    <% if @inning % 2 == 0%>
+      <td id="inning"><%= @inning %></td><td id="top_or_bottom">回裏</td>
+    <% else %>
+      <td id="inning"><%= @inning %></td><td id="top_or_bottom">回表</td>
+    <% end %>
+  </tr>
+  <tr>
+    <td>B:</td>
+    <td id="ball"><%= @ball %></td>
+  </tr>
+  <tr>
+    <td>S:</td>
+    <td id="strike"><%= @strike %></td>
+  </tr>
+  <tr>
+    <td>O:</td>
+    <td id="out"><%= @out %></td>
+  </tr>
+</table>
+</div id="count_button">
+  <button id="ball_add">ball</button>
+  <button id="strike_add">strike</button>
+  <button id="fall">fall</button>
+  <button id="out_add">out</button>
+</div>
+<br>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

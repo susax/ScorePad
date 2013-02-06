@@ -1,0 +1,23 @@
+<h1>Listing affiliations</h1>
+
+<%= render 'form' %>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @affiliations.each do |affiliation| %>
+  <tr>
+    <td><%= affiliation.team.tname %></td>
+    <td><%= affiliation.player.pname %></td>
+    <td><%= link_to 'Show', affiliation %></td>
+    <td><%= link_to 'Edit', edit_affiliation_path(affiliation) %></td>
+    <td><%= link_to 'Destroy', affiliation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

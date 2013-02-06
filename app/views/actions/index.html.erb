@@ -1,0 +1,25 @@
+<h1>アクション一覧</h1>
+
+<%= render 'form' %>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.top_team_id %></td>
+    <td><%= game.bottom_team_id %></td>
+    <td><%= game.playball_datetime %></td>
+    <td><%= game.stadium %></td>
+    <td><%= link_to 'Show', game %></td>
+    <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
