@@ -16,10 +16,17 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @game = Game.find(params[:id])
+  	@top_team = Team.find(@game.top_team_id)
+    @bottom_team = Team.find(@game.bottom_team_id)
+    @top_players = Affiliation.find(:all, :conditions => { :team_id => @game.top_team_id})
+    @bottom_players = Affiliation.find(:all, :conditions => { :team_id => @game.bottom_team_id})
     @inning = 1
     @strike = 0
     @ball = 0
     @out = 0
+    @top_score = 0
+    @bottom_score = 0
+    @position = ["P", "C", "1B", "2B", "3B", "SS", "LF", "CF", "RF"]
 
     respond_to do |format|
       format.html # show.html.erb

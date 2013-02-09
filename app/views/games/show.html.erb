@@ -1,140 +1,320 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-  <tr>
-    <td><%= @game.top_team_id %></td>
-    <td><%= @game.bottom_team_id %></td>
-    <td><%= @game.playball_datetime %></td>
-    <td><%= @game.stadium %></td>
-  </tr>
-</table>
-
 <table id="lineup">
   <tr>
-  	<td>先攻</td>
-  	<td>後攻</td>
-  </tr>
-  <tr>
   	<td>
-      <table id="top_lineup">
+      <table id="top_lineup" class="table table-hover">
+        <tr>
+          <td>先攻</td>
+          <td><%= @top_team.tname %></td>
+          <td></td>
+        </tr>
       	<tr id="top_lineup_1">
       	  <td>1:</td>
-      	  <td id="top_lineup_1_player"></td>
+      	  <td id="top_lineup_1_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_1_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_2">
       	  <td>2:</td>
-      	  <td id="top_lineup_2_player"></td>
+      	  <td id="top_lineup_2_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_2_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_3">
       	  <td>3:</td>
-      	  <td id="top_lineup_3_player"></td>
+      	  <td id="top_lineup_3_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_3_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_4">
       	  <td>4:</td>
-      	  <td id="top_lineup_4_player"></td>
+      	  <td id="top_lineup_4_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_4_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_5">
       	  <td>5:</td>
-      	  <td id="top_lineup_5_player"></td>
+      	  <td id="top_lineup_5_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_5_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_6">
       	  <td>6:</td>
-      	  <td id="top_lineup_6_player"></td>
+      	  <td id="top_lineup_6_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_6_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_7">
       	  <td>7:</td>
-      	  <td id="top_lineup_7_player"></td>
+      	  <td id="top_lineup_7_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_7_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_8">
       	  <td>8:</td>
-      	  <td id="top_lineup_8_player"></td>
+      	  <td id="top_lineup_8_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_8_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="top_lineup_9">
       	  <td>9:</td>
-      	  <td id="top_lineup_9_player"></td>
+      	  <td id="top_lineup_9_player">
+            <%= select :page, :name, @top_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="top_lineup_9_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       </table>
   	</td>
+    <td>
+      <table id="game_info">
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><i class="icon-time"></i><%= @game.playball_datetime.strftime("%Y-%m-%d %H:%M") %></td>
+        </tr>
+        <tr>
+          <td><i class="icon-map-marker"></i><%= @game.stadium %></td>
+        </tr>
+      </table>
+      <table id="count">
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <% if @inning % 2 == 0%>
+            <td id="inning"><%= @inning %></td><td id="top_or_bottom">回裏</td>
+          <% else %>
+            <td id="inning"><%= @inning %></td><td id="top_or_bottom">回表</td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>B:</td>
+          <td id="ball"><%= @ball %></td>
+        </tr>
+        <tr>
+          <td>S:</td>
+          <td id="strike"><%= @strike %></td>
+        </tr>
+        <tr>
+          <td>O:</td>
+          <td id="out"><%= @out %></td>
+        </tr>
+      </table>
+      <table id="game_score">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>合計</td>
+        </tr>
+        <tr>
+          <td>先攻：</td>
+          <td id="top_inning_1"><%= @top_score %></td>
+          <td id="top_inning_2"></td>
+          <td id="top_inning_3"></td>
+          <td id="top_inning_4"></td>
+          <td id="top_inning_5"></td>
+          <td id="top_inning_6"></td>
+          <td id="top_inning_7"></td>
+          <td id="top_inning_8"></td>
+          <td id="top_inning_9"></td>
+          <td id="top_score"><%= @top_score %></td>
+        </tr>
+        <tr>
+          <td>後攻：</td>
+          <td id="bottom_inning_1"><%= @bottom_score %></td>
+          <td id="bottom_inning_2"></td>
+          <td id="bottom_inning_3"></td>
+          <td id="bottom_inning_4"></td>
+          <td id="bottom_inning_5"></td>
+          <td id="bottom_inning_6"></td>
+          <td id="bottom_inning_7"></td>
+          <td id="bottom_inning_8"></td>
+          <td id="bottom_inning_9"></td>
+          <td id="bottom_score"><%= @bottom_score %></td>
+        </tr>
+      </table>
+      <table id="runner">
+        <tr id="first_base">
+          <td>一塁：</td>
+          <td id="first_base_runner"></td>
+          <td><button class="btn btn-danger record runner_out" style="display:none">ランナーアウト</button></td>
+        </tr>
+        <tr id="second_base">
+          <td>二塁：</td>
+          <td id="second_base_runner"></td>
+          <td><button class="btn btn-danger record runner_out" style="display:none">ランナーアウト</button></td>
+        </tr>
+        <tr id="third_base">
+          <td>三塁：</td>
+          <td id="third_base_runner"></td>
+          <td><button class="btn btn-danger record runner_out" style="display:none">ランナーアウト</button></td>
+        </tr>
+      </table>
+      <button id="play_ball" class="btn btn-large btn-primary">プレイボール</button>
+      <div class="action_button" style="display:none">
+        <button id="ball_add" class="btn record">ボール</button>
+        <button id="strike_add" class="btn">ストライク</button>
+        <button id="fall" class="btn record">ファール</button>  
+        <div id="strike_bottom" style="display:none">
+          <button id="called_strike" class="btn record">見逃し</button>
+          <button id="swing" class="btn record">空振り</button>
+          <button id="dropped_third_strike" class="btn btn-warning record" style="display:none">振り逃げ</button>    
+        </div>
+      </div>
+      <br>
+      <div class="runner_action" style="display:none">
+        <button id="runner_start" class="btn" data-toggle="button">ランナースタート</button>
+        <button id="pickoff" class="btn record">牽制</button>
+        <button id="pickoff_out" class="btn btn-danger record">牽制アウト</button>
+        <button id="balk" class="btn btn-warning record">ボーク</button>
+      </div>
+      <br>
+      <div class="action_button" style="display:none">
+        <button id="batter_out" class="btn btn-danger record">バッターアウト</button>
+        <button id="hit_by_pitch" class="btn btn-warning record">デットボール</button>
+        <button id="hit" class="btn btn-primary">ヒット</button>
+        <button id="home_run" class="btn btn-primary record">ホームラン</button>
+      </div>
+      <br>
+      <div id="hit_select" style="display:none">
+        <button id="single" class="btn btn-primary record">シングル</button>
+        <button id="double" class="btn btn-primary record">ダブル</button>
+        <button id="triple" class="btn btn-primary record">トリプル</button>
+        <button id="hit_cancel" class="btn">キャンセル</button>  
+      </div>
+    </td>
   	<td>
-      <table id="bottom_lineup">
+      <table id="bottom_lineup" class="table table-hover">
+        <tr>
+          <td>後攻</td>
+          <td><%= @bottom_team.tname %></td>
+          <td></td>
+        </tr>
       	<tr id="bottom_lineup_1">
       	  <td>1:</td>
-      	  <td id="bottom_lineup_1_player"></td>
+          <td id="bottom_lineup_1_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_1_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_2">
       	  <td>2:</td>
-      	  <td id="bottom_lineup_2_player"></td>
+      	  <td id="bottom_lineup_2_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_2_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_3">
       	  <td>3:</td>
-      	  <td id="bottom_lineup_3_player"></td>
+      	  <td id="bottom_lineup_3_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_3_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_4">
       	  <td>4:</td>
-      	  <td id="bottom_lineup_4_player"></td>
+      	  <td id="bottom_lineup_4_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_4_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_5">
       	  <td>5:</td>
-      	  <td id="bottom_lineup_5_player"></td>
+      	  <td id="bottom_lineup_5_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_5_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_6">
       	  <td>6:</td>
-      	  <td id="bottom_lineup_6_player"></td>
+      	  <td id="bottom_lineup_6_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_6_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_7">
       	  <td>7:</td>
-      	  <td id="bottom_lineup_7_player"></td>
+      	  <td id="bottom_lineup_7_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_7_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_8">
       	  <td>8:</td>
-      	  <td id="lineup_8_player"></td>
+      	  <td id="bottom_lineup_8_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+
+          <td id="bopttom_lineup_8_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       	<tr id="bottom_lineup_9">
       	  <td>9:</td>
-      	  <td id="lineup_9_player"></td>
+      	  <td id="bottom_lineup_9_player">
+            <%= select :page, :name, @bottom_players.map{|t| [t.player.pname, t.id]} , { :include_blank => true}, { :class => "span2"} %>
+          </td>
+          <td id="bopttom_lineup_9_position">
+            <%= select :page, :name, @position, { :include_blank => true},{ :class => "span1"} %>
+          </td>
       	</tr>
       </table>
   	</td>
   </tr>
 </table>
-
-<table id="count">
-  <tr>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr>
-    <% if @inning % 2 == 0%>
-      <td id="inning"><%= @inning %></td><td id="top_or_bottom">回裏</td>
-    <% else %>
-      <td id="inning"><%= @inning %></td><td id="top_or_bottom">回表</td>
-    <% end %>
-  </tr>
-  <tr>
-    <td>B:</td>
-    <td id="ball"><%= @ball %></td>
-  </tr>
-  <tr>
-    <td>S:</td>
-    <td id="strike"><%= @strike %></td>
-  </tr>
-  <tr>
-    <td>O:</td>
-    <td id="out"><%= @out %></td>
-  </tr>
-</table>
-</div id="count_button">
-  <button id="ball_add">ball</button>
-  <button id="strike_add">strike</button>
-  <button id="fall">fall</button>
-  <button id="out_add">out</button>
-</div>
 <br>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
